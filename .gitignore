@@ -1,0 +1,12 @@
+#VS配置
+#删除.vs和Debug,和一些VS文件
+*/.vs/
+*/x64/
+*/Debug/
+*.vcxproj
+*.filters
+*.user
+*.sln
+Debug
+.vs
+x64
