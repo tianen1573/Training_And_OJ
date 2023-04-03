@@ -1,6 +1,8 @@
 #include<iostream>
 #include<string>
-
+#include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
 using namespace std;
 
 int main()
@@ -26,6 +28,8 @@ int main()
     }
     
     cout << op;
+
+    cin >> op;
     
     return 0;
 }
