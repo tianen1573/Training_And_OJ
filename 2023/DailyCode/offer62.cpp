@@ -1,34 +1,14 @@
 class Solution {
 public:
-    bool isStraight(vector<int>& nums) {
+    int lastRemaining(int n, int m) {
+        //https://leetcode.cn/problems/yuan-quan-zhong-zui-hou-sheng-xia-de-shu-zi-lcof/solution/si-bu-he-xin-gong-shi-qing-song-nong-don-3vln/
 
-        sort(nums.begin(), nums.end());
+        //dp[i] = (dp[i-1] + m) % i;
+        int t = 0;
+        for(int i = 2; i <= n; ++ i)
+            t = (t + m) % i;
 
-        int val = -1, cnt = 0;
-        
-        int i = 0;
-        for(; i < 5;)
-        {
-            if(nums[i] == 0) ++ cnt, ++ i;
+        return t;
 
-            else if(val == -1) val = nums[i] + 1, ++ i;
-            else
-            {
-                if(val != nums[i])
-                {
-
-                    if(cnt) -- cnt, ++ val;
-                    else return false;
-
-                }
-                else
-                {
-                    ++ i;
-                    ++ val;
-                }
-                
-            }
-        }
-        return i == 5;
     }
 };
