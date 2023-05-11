@@ -24,7 +24,7 @@ namespace 稠密图
         dist[1] = 0;
 
         //n次遍历
-        for (int i = 0; i <= n; ++i)
+        for (int i = 0; i < n; ++i)
         {
             //1. 从还未确认最短距离的点集中， 找到最短距离的点
             int t = -1;
