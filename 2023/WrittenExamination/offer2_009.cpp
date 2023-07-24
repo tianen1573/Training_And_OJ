@@ -7,10 +7,10 @@ class Solution {
 public:
 
     // 滑动窗口， 每次入队一个元素，循环出队使队内元素乘积小于k
-    // 此时队尾元素若存在一定为新元素，则队列长度的大小 新增的就是以新元素为队尾的序列
-    int numSubarrayProductLessThanK(vector<int>& nums, int k = 0) {
+    // 此时队尾元素若存在一定为新元素，则队列长度的大小就是 新增的以新元素为队尾的序列
+    int numSubarrayProductLessThanK(vector<int>& nums, int k) {
 
-        // if(k == 0) return 0;
+        if(k <= 1) return 0;
 
         long long pro = 1;
         int res = 0, cnt = 0;
@@ -22,10 +22,6 @@ public:
 
             while(cnt >= 0 && pro >= k)
             {
-                if(nums[i - cnt + 1] == 0)
-                {
-                    cout << "??";
-                }
                 pro /= nums[i - cnt + 1]; // 有一个样例会报除零错误，无法理解
                 -- cnt;
             }
