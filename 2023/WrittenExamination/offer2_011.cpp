@@ -3,7 +3,7 @@ public:
     int findMaxLength(vector<int>& nums) {
         // 变种前缀和思路
         // 统计遍历到i时，1和0的个数，并求个数差diff
-        // 如果在i之前，以及存在差为diff的连续序列j，则i-j[j+1,i]就是连续序列的长度
+        // 如果在i之前，已经存在差为diff的连续序列j，则i-j[j+1,i]就是连续序列的长度
         // 不存在，就把diff添加到map中，并且易得diff第一次出现时的位置是最优解
         unordered_map<int, int> hash;
         hash[0] = -1;
