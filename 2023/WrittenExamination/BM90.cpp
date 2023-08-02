@@ -21,7 +21,7 @@ public:
             // 非T元素不关心
             if(hash.find(S[i]) == hash.end()) continue;
             // T元素引起diff变化
-            if(-- hash[S[i] == 0]) -- diff;
+            if(-- hash[S[i]] == 0) -- diff;
 
             // 队内元素含有T
             // 开滑，滑到不含T
@@ -34,7 +34,7 @@ public:
                 {
                     char head = que.front();
                     que.pop();
-                    if(hash.find(head) != hash.end()) continue; // 非T元素不关心
+                    if(hash.find(head) == hash.end()) continue; // 非T元素不关心
                     // 队里的T元素可能过多，出队时不一定引起diff变化
                     // 引起diff变化
                     if( ++ hash[head] == 1)
@@ -44,7 +44,7 @@ public:
                         if(que.size() + 1 < ret) //此时左端点刚划走了t的元素，需要捡回来
                         {
                             ret = que.size() + 1;
-                            retString = S.substr(i-ret+1, ret);
+                            retString = S.substr(i - ret + 1, ret);
                         }
                         // 把两个T元素之间的无关元素滑走
                         while(que.size())
