@@ -5,6 +5,9 @@ public:
     // 分情况讨论：第一家店偷不偷
     int rob(vector<int>& nums) {
         
+        if(nums.size() == 1)
+            return nums[0];
+
         const int N = 2e5 + 11;
         int f[N][2];
 
