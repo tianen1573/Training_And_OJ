@@ -1,68 +1,10 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+/*
+* 给定一个长度为n的数组，数组元素大于0
+* 执行k次操作，每次操作为，将某个数的最低为变成0
+* 请问：执行k次操作后，数组和的最小数
+*/
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <unordered_map>
-using namespace std;
-
-unsigned long long ans = 0;
-
-void dfs(unordered_map<int, vector<int>>& hash, unsigned long long sum, int k)
-{
-
-	if (k == 0)
-	{
-		ans = max(ans, sum);
-		return;
-	}
-	for (int i = 1; i <= k; ++i)
-	{
-		auto& arr = hash[i];
-		if (arr.empty())
-			continue;
-
-		int val = arr.back();
-		sum += val;
-		arr.pop_back();
-		dfs(hash, sum, k - i);
-		sum -= val;
-		arr.emplace_back(val);
-	}
-}
-
-int main()
-{
-	int n, k;
-	unsigned long long ssum = 0;
-	vector<vector<int>> arr;
-	unordered_map<int, vector<int>> hash;
-	cin >> n >> k;
-	for (int i = 0; i < n; ++i)
-	{
-		int v; cin >> v;
-		ssum += v;
-
-		int cnt = 1;
-		int sum = 0;
-		for (int i = 0; i < 31; ++i)
-			if (v & (1 << i))
-			{
-				sum += (1 << i);
-				hash[cnt].push_back(sum);
-				++cnt;
-			}
-	}
-	for (auto& it : hash)
-	{
-		auto& tmp = it.second;
-		sort(tmp.begin(), tmp.end());
-	}
-
-	dfs(hash, 0, k);
-
-	cout << ssum - ans;
-	
-
-	return 0;
-}
+// 分组背包问题
+// n组背包，每个背包的元素为(删除的个数，删除的值)
+// 则f[i][j]：到第i组背包时，删除1的个数为j的最大价值
+// 数组总和 - f[n - 1][k]

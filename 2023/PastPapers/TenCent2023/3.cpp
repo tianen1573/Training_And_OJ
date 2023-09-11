@@ -7,11 +7,11 @@
 * 牛牛可以任意决定与怪物战斗的顺序，牛牛想知道打败完所有的n只怪物之后，牛牛累计提升的勇气值最大可能是多少。
 */
 
+// 排序+贪心
+
 #include <iostream>
 #include <vector>
-
 using namespace std;
-
 
 //int main()
 //{

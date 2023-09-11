@@ -7,17 +7,11 @@
 * 牛牛把每次的结果都记录下来了，但是他怕出错，给你初始的序列a和b，希望你能帮他验证一下。
 */
 
+// 反向考虑，则问题为：插入一个数后，中位数是什么
+// offer中位数变形
+
 #include <iostream>
 #include <vector>
 #include <list>
 #include <algorithm>
 using namespace std;
-
-struct DBL
-{
-	int val;
-	DBL* pre;
-	DBL* next;
-
-	DBL(int v) : val(v){};
-};
