@@ -1,3 +1,8 @@
+// https://www.nowcoder.com/questionTerminal/14bcbcb7ae3c40c9bdbc5a0861361c29
+#include <vector>
+#include <string>
+using namespace std;
+
 class Solution {
 
     /**
